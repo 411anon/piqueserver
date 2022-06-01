@@ -581,7 +581,7 @@ void boxclipmove(PlayerType *p)
     {
         p->p.x = nx;
     }
-    else if (!p->crouch && p->f.z < 0.5f && !p->sprint)
+    else if (!p->crouch && p->f.z < 0.5f && !p->sprint && p->p.z > 60)
     {
         z = 0.35f;
 
@@ -612,7 +612,7 @@ void boxclipmove(PlayerType *p)
         z -= 0.9f;
     if (z < -1.36f)
         p->p.y = ny;
-    else if (!p->crouch && p->f.z < 0.5f && !p->sprint && !climb)
+    else if (!p->crouch && p->f.z < 0.5f && !p->sprint && !climb && p->p.z > 60)
     {
         z = 0.35f;
         while (z >= -2.36f && !clipbox(p->p.x - 0.45f, ny + f, nz + z) && !clipbox(p->p.x + 0.45f, ny + f, nz + z))
